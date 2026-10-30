@@ -900,9 +900,10 @@ type LinuxIOUring struct {
 	// All other operations are denied.
 	Ops []string `json:"ops"`
 	// SocketFamilies is the list of address families that IORING_OP_SOCKET
-	// can create, e.g., "AF_INET". Nil or empty means any address family;
-	// to deny all sockets, leave IORING_OP_SOCKET out of Ops.
-	SocketFamilies []string `json:"socketFamilies,omitempty"`
+	// can create, e.g., "AF_INET". Nil means any address family. If set, it
+	// must not be empty: to deny all sockets, leave IORING_OP_SOCKET out of
+	// Ops. A pointer, so that an empty list is not omitted.
+	SocketFamilies *[]string `json:"socketFamilies,omitempty"`
 }
 
 // LinuxMemoryPolicy represents input for the set_mempolicy syscall.

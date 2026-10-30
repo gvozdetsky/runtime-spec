@@ -272,7 +272,7 @@
         },
         "SocketFamily": {
             "type": "string",
-            "pattern": "^AF_[A-Z0-9_]+$"
+            "pattern": "^AF_[A-Za-z0-9_]+$"
         },
         "MemoryPolicyMode": {
             "type": "string",
